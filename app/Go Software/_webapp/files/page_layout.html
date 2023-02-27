@@ -6,7 +6,9 @@ body { background-image: url('../pics/'); no-repeat center center fixed; backgro
 
 .main_logo_area_wrap { background-color: #333; color: #eee; text-align: center; width: 125px; padding: 15px; font-family: sans-serif; letter-spacing: 0.08em; margin-top: 15px; display: inline-block; }
 
-.main_nav_button_wrap { margin-top: 5px; cursor: pointer; width: 25px; text-align: center; outline: 1px solid #aaa; padding: 5px; display: inline-block; background-color: #eee; }
+.main_nav_button_wrap { margin: 8px; margin-top: 5px; cursor: pointer; width: 25px; text-align: center; outline: 1px solid #aaa; padding: 5px; display: inline-block; background-color: #eee; font-size: 12px; }
+.main_nav_button_wrap:hover { background-color: #aaa; }
+
 
 .app_page_name { display: inline-block; margin-left: 25px; }
 
@@ -38,6 +40,14 @@ function activateNav () { console.log('activating function activateNav()');
   console.log('main nav display set to ', display);
 };
 
+function activateMap () { console.log('activating function activateMap()');
+  var MapArea = document.getElementById('MapArea');
+  var display = getComputedStyle(MapArea).display;
+  if (display == "none") { MapArea.style.display = "block";
+	} else { MapArea.style.display = "none"; }
+  console.log('MapArea display set to ', display);
+};
+
 </script>
 
 </head>
@@ -50,9 +60,13 @@ function activateNav () { console.log('activating function activateNav()');
   
 </header>
 
-  <div class="main_nav_button_wrap" onClick="activateNav();">
-    Nav
+  <div class="main_nav_button_wrap" onClick="activateNav();">Nav
   </div><!-- - . main_nav_button_wrap - -->
+  
+  <div class="main_nav_button_wrap" onClick="activateMap();">Map
+  </div><!-- - . main_nav_button_wrap - -->
+
+
 
 <main>
 
@@ -84,7 +98,7 @@ function activateNav () { console.log('activating function activateNav()');
 <div class="main_area_wrap">
   <div class="main_area_data">
     
-    <div class="page_area_map_wrap">
+    <div class="page_area_map_wrap" id="MapArea">
       <div class="page_area_map_name">Tucson Map</div>
         <div class="page_area_map_data">
       
